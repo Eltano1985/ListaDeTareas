@@ -3,14 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tareas</title>
+    <title>Listas de Tareas</title>
     <link rel="stylesheet" href="estilos.css" type="text/css" />
 </head>
 <body>
     <div class="contenedor">
-        <h1>Tareas</h1>
-        <input type="text" id="ingresaTarea" placeholder="ingresa una nueva Tarea" />
-        <button id="agregaBoton">Añadir</button>
+        <h1>Listas de Tareas</h1>
+
+        <!-- Campo para añadir una nueva lista de tareas -->
+        <input type="text" id="ingresaLista" placeholder="Ingresa una nueva Lista" />
+        <button id="agregaListaBoton">Añadir Lista</button>
+        
+        <!-- Selector de listas -->
+        <select id="seleccionarLista"></select>
+        <button id="eliminarListaBoton" class="delete-list-button">Eliminar Lista</button>
+
+        <h2>Tareas en la lista: <span id="nombreListaActual"></span></h2>
+        <input type="text" id="ingresaTarea" placeholder="Ingresa una nueva Tarea" />
+        <button id="agregaBoton">Añadir Tarea</button>
         <ul id="listaDeTareas"></ul>
     </div>
 
