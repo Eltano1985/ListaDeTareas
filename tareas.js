@@ -73,9 +73,9 @@ class Tareas {
     }
 
     // Cargar las listas y tareas desde el localStorage
-    loadTareasFromLocalStorage() {
-        const storedListas = localStorage.getItem('listasDeTareas');
-        this.listas = JSON.parse(storedListas) || {};
+    cargarTareasDesdeElAlmacenamientoLocal() {
+        const listasAlmacenadas = localStorage.getItem('listasDeTareas');
+        this.listas = JSON.parse(listasAlmacenadas) || {};
         this.cargarListasEnSelector();
     }
 
