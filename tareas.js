@@ -8,7 +8,7 @@ class Tareas {
     añadirLista(nombreDeLaLista) {
         if (!this.listas[nombreDeLaLista]) {
             this.listas[nombreDeLaLista] = []; // Cada lista es un array de tareas
-            this.saveTareasToLocalStorage();
+            this.guardarTareasEnElAlmacenamientoLocal();
             this.cargarListasEnSelector();
             this.cambiarLista(nombreDeLaLista); // Cambiar a la nueva lista creada
         }
@@ -25,7 +25,7 @@ class Tareas {
     eliminarLista() {
         if (this.listaActual) {
             delete this.listas[this.listaActual];
-            this.saveTareasToLocalStorage();
+            this.guardarTareasEnElAlmacenamientoLocal();
             this.cargarListasEnSelector();
             if (Object.keys(this.listas).length > 0) {
                 this.cambiarLista(Object.keys(this.listas)[0]); // Cambiar a la primera lista disponible
@@ -44,7 +44,7 @@ class Tareas {
                 text: textoDeLaTarea
             };
             this.listas[this.listaActual].push(tarea);
-            this.saveTareasToLocalStorage();
+            this.guardarTareasEnElAlmacenamientoLocal();
             this.representacionDeLasTareas();
         }
     }
@@ -53,7 +53,7 @@ class Tareas {
     editarTarea(index, newText) {
         if (this.listaActual) {
             this.listas[this.listaActual][index].text = newText;
-            this.saveTareasToLocalStorage();
+            this.guardarTareasEnElAlmacenamientoLocal();
             this.representacionDeLasTareas();
         }
     }
@@ -62,13 +62,13 @@ class Tareas {
     eliminarTarea(index) {
         if (this.listaActual) {
             this.listas[this.listaActual].splice(index, 1);
-            this.saveTareasToLocalStorage();
+            this.guardarTareasEnElAlmacenamientoLocal();
             this.representacionDeLasTareas();
         }
     }
 
     // Guardar las listas y tareas en el localStorage
-    saveTareasToLocalStorage() {
+    guardarTareasEnElAlmacenamientoLocal() {
         localStorage.setItem('listasDeTareas', JSON.stringify(this.listas));
     }
 
